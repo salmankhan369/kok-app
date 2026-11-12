@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kok-app-config
+  namespace: kok-prod
+data:
+  APP_ENV: "AWS-EKS-PRODUCTION"
+  WELCOME_MSG: "Hello from KOK-APP running on Kubernetes!"
+  REDIS_HOST: "redis-service"

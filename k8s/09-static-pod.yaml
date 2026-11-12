@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kok-static-watchdog
+  namespace: kok-prod
+  labels:
+    role: node-watchdog
+spec:
+  containers:
+    - name: watchdog
+      image: busybox:1.36
+      command: ["/bin/sh", "-c", "while true; do echo Static Pod Watchdog Active; sleep 60; done"]
+      resources:
+        requests:
+          cpu: "50m"
+          memory: "64Mi"
+        limits:
+          cpu: "100m"
+          memory: "128Mi"
