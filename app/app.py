@@ -39,11 +39,18 @@ HTML_TEMPLATE = """
             --deep-blue: #0066ff;
             --cyber-cyan: #0aff99;
             --text-main: #d0f0ff;
-            --text-dim: #5c85a6;
+            --text-dim: #7ba3c4;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Courier New', Courier, monospace; }
         body {
             background-color: var(--bg-dark);
+            background-image: 
+                linear-gradient(rgba(2, 8, 20, 0.68), rgba(2, 6, 15, 0.82)),
+                url('/static/image_20260519.jpg');
+            background-size: cover;
+            background-position: center 15%;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
             color: var(--text-main);
             overflow-x: hidden;
             min-height: 100vh;
@@ -52,8 +59,8 @@ HTML_TEMPLATE = """
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            z-index: 0;
-            opacity: 0.25;
+            z-index: 1;
+            opacity: 0.22;
             pointer-events: none;
         }
         .container {
@@ -81,21 +88,21 @@ HTML_TEMPLATE = """
             text-shadow: 0 0 12px rgba(0, 243, 255, 0.8);
             letter-spacing: 2px;
         }
-        .brand p { color: var(--text-dim); font-size: 0.85rem; margin-top: 4px; }
+        .brand p { color: var(--text-main); font-size: 0.85rem; margin-top: 4px; }
 
         .engineer-badge {
-            background: linear-gradient(135deg, rgba(0, 102, 255, 0.25), rgba(0, 243, 255, 0.15));
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.35), rgba(0, 243, 255, 0.2));
             border: 1px solid var(--neon-blue);
             padding: 12px 20px;
             border-radius: 6px;
             cursor: pointer;
             text-align: right;
             transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.35);
             user-select: none;
         }
         .engineer-badge:hover {
-            box-shadow: 0 0 25px rgba(0, 243, 255, 0.8);
+            box-shadow: 0 0 25px rgba(0, 243, 255, 0.85);
             transform: translateY(-2px);
         }
         .engineer-role {
@@ -138,10 +145,11 @@ HTML_TEMPLATE = """
         }
         .hud-box {
             background: var(--panel-bg);
-            border: 1px solid rgba(0, 243, 255, 0.35);
+            border: 1px solid rgba(0, 243, 255, 0.4);
             border-left: 4px solid var(--neon-blue);
             padding: 14px;
             border-radius: 4px;
+            backdrop-filter: blur(4px);
         }
         .hud-label { font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; }
         .hud-val { font-size: 1.15rem; font-weight: bold; color: var(--neon-blue); margin-top: 5px; word-break: break-all; }
@@ -154,6 +162,7 @@ HTML_TEMPLATE = """
             letter-spacing: 1.5px;
             border-left: 3px solid var(--deep-blue);
             padding-left: 10px;
+            text-shadow: 0 0 8px rgba(0, 243, 255, 0.6);
         }
         .grid {
             display: grid;
@@ -163,17 +172,18 @@ HTML_TEMPLATE = """
         }
         .card {
             background: var(--panel-bg);
-            border: 1px solid rgba(0, 102, 255, 0.4);
+            border: 1px solid rgba(0, 102, 255, 0.5);
             border-radius: 6px;
             padding: 16px;
             cursor: pointer;
             transition: all 0.25s ease;
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(4px);
         }
         .card:hover {
             border-color: var(--neon-blue);
-            box-shadow: 0 0 20px rgba(0, 243, 255, 0.35);
+            box-shadow: 0 0 22px rgba(0, 243, 255, 0.45);
             transform: translateY(-3px);
         }
         .card-header {
@@ -196,18 +206,19 @@ HTML_TEMPLATE = """
             0%, 100% { box-shadow: 0 0 4px rgba(0, 243, 255, 0.4); }
             50% { box-shadow: 0 0 12px rgba(0, 243, 255, 0.9); }
         }
-        .card-desc { font-size: 0.82rem; color: var(--text-dim); line-height: 1.4; }
+        .card-desc { font-size: 0.82rem; color: var(--text-main); line-height: 1.4; opacity: 0.9; }
         .card-click { font-size: 0.72rem; color: var(--neon-blue); margin-top: 10px; display: block; }
 
         /* Live Terminal Feed */
         .terminal {
-            background: rgba(1, 8, 18, 0.92);
+            background: rgba(1, 8, 18, 0.9);
             border: 1px solid var(--deep-blue);
             border-radius: 6px;
             padding: 15px;
             height: 180px;
             overflow-y: auto;
             font-size: 0.82rem;
+            backdrop-filter: blur(4px);
         }
         .log-line { margin-bottom: 6px; color: #7ec8ff; }
         .log-time { color: var(--neon-blue); margin-right: 8px; }
@@ -330,7 +341,7 @@ HTML_TEMPLATE = """
         <div class="modal-box" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="forceCloseModal()">X</button>
             <div class="modal-title" id="modal-title"></div>
-            <div id="modal-subtitle" style="color: #5c85a6; font-size: 0.85rem;"></div>
+            <div id="modal-subtitle" style="color: #7ba3c4; font-size: 0.85rem;"></div>
             <div class="algo-steps" id="modal-algo"></div>
             <div style="font-size: 0.8rem; color: #00f3ff;" id="modal-impact"></div>
         </div>
