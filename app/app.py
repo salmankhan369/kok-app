@@ -46,7 +46,7 @@ HTML_TEMPLATE = """
             background-color: var(--bg-dark);
             background-image: 
                 linear-gradient(rgba(2, 8, 20, 0.68), rgba(2, 6, 15, 0.82)),
-                url('/static/image_20260519.jpg');
+                url('/static/image_20260519.png');
             background-size: cover;
             background-position: center 15%;
             background-attachment: fixed;
